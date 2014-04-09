@@ -10,9 +10,9 @@ get '/' do
     config.access_token         = ENV['TWITTER_OAUTH_TOKEN']
     config.access_token_secret  = ENV['TWITTER_OAUTH_TOKEN_SECRET']
   end
-
+  logger.info 'client connected..'
   twitbot = Twitbot.new(client)
   twitbot.update!
 
-  puts "--- end ---"
+  logger.info "--- end ---"
 end
