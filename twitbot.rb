@@ -4,12 +4,14 @@ class Twitbot
   URL = ENV['TWITBOT_URL']
 
   attr_reader :tweet, :post, :logger
+  attr_accessor :errors
 
   def initialize(client, url = URL, logger=Logger.new(STDOUT))
     open(URL) { |rss| @feed = RSS::Parser.parse(rss) }
 
     @client = client
     @logger = logger
+    @errors = []
   end
 
   def update!
@@ -18,6 +20,7 @@ class Twitbot
       @client.update "#{post[:title]} - #{post[:link]}"
       logger.info("OK!")
     rescue => e
+      errors << e.inspect
       logger.warn("Ops! Something went wrong #{e.inspect}")
     end
   end
