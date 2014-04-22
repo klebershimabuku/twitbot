@@ -17,7 +17,7 @@ class Twitbot
   def update!
     begin
       logger.info("Tweeting.. #{post[:title]} - #{post[:link]}")
-      @client.update "#{post[:title]} - #{post[:link]}"
+      @client.update "#{post[:title]} - #{post[:link]} #japao #empregosnojapao #shigotodoko"
       logger.info("OK!")
     rescue => e
       errors << e.inspect
