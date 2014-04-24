@@ -1,7 +1,7 @@
 Twitbot
 =======
 
-Twitbot is a tiny sinatra app that uses an feed to post rendom tweets.
+Twitbot is a tiny sinatra app that uses an feed to tweet random posts.
 
 Configure
 ---
